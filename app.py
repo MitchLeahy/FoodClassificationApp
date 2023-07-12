@@ -2,8 +2,10 @@ import streamlit as st
 from PIL import Image
 from food_api import get_nutrition_info, get_recipe
 import json
-#import your model here
-# e.g. from my_model import my_classifier
+
+
+#import here
+
 
 
 
@@ -20,6 +22,7 @@ if uploaded_file is not None:
     if st.button("Enter"):
         nutrition_info = get_nutrition_info(class_label)
 
+        # picks the first search result and extracts the nutrients object specifically the 'KCAL' value
         calories = [x['value'] for x in nutrition_info['foods'][0]['foodNutrients'] if x['unitName'] == 'KCAL'][0]
         # calories = nutrition_info
 
