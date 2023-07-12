@@ -27,7 +27,7 @@ if uploaded_file is not None:
         # calories = nutrition_info
 
 
-        st.write(f"This food has {calories} calories per serving size")
+        st.write(f"{class_label} has {calories} calories per serving size")
     # recipe = get_recipe(class_label)
 
     # Display nutrition info and recipe
