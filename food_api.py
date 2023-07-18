@@ -33,6 +33,6 @@ def get_nutrition_info(food_name):
 def get_recipe(food_name):
     # This function would use an API or dataset to get a recipe for the given food
  
-    response = requests.get(f"https://api.spoonacular.com/recipes/complexSearch?query={food_name}&apiKey=YOUR_API_KEY")
+    response = requests.get(f"http://www.themealdb.com/api/json/v1/1/search.php?s={food_name}")
     return response.json()
-    pass
+    

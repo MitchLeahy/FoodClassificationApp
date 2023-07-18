@@ -28,8 +28,8 @@ if uploaded_file is not None:
 
 
         st.write(f"{class_label} has {calories} calories per serving size")
-    # recipe = get_recipe(class_label)
+        recipe = get_recipe(class_label)
 
     # Display nutrition info and recipe
 
-    # st.write("Recipe:", recipe)
+        st.write("Recipe:", recipe)
