@@ -8,6 +8,10 @@ import json
 
 
 
+# Read the list from the JSON file
+with open('responses.json', 'r') as f:
+    response_dict = json.load(f)
+
 
 st.title("Food Classifier")
 
@@ -20,16 +24,16 @@ if uploaded_file is not None:
     class_label = st.text_input("Enter the class label for this image")
 
     if st.button("Enter"):
-        nutrition_info = get_nutrition_info(class_label)
+        # nutrition_info = get_nutrition_info(class_label)
 
         # picks the first search result and extracts the nutrients object specifically the 'KCAL' value
-        calories = [x['value'] for x in nutrition_info['foods'][0]['foodNutrients'] if x['unitName'] == 'KCAL'][0]
+        # calories = [x['value'] for x in nutrition_info['foods'][0]['foodNutrients'] if x['unitName'] == 'KCAL'][0]
         # calories = nutrition_info
 
 
-        st.write(f"{class_label} has {calories} calories per serving size")
-        recipe = get_recipe(class_label)
+        # st.write(f"{class_label} has {calories} calories per serving size")
+        # recipe = get_recipe(class_label)
 
     # Display nutrition info and recipe
 
-        st.write("Recipe:", recipe)
+        st.write(response_dict[class_label])
