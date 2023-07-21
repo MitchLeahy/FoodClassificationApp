@@ -24,8 +24,8 @@ if uploaded_file is not None:
     st.image(image, caption='Uploaded Image.', use_column_width=True)
 
     st.write(preprocess_image(uploaded_file))
-    
-    st.write(load_model("model/ViT_Food_5k.h5").summary())
+
+    st.write(load_model("model/ViT_Food_5k.h5"))
 
     # st.write("The class label you entered is:", is_food(uploaded_file))
 
