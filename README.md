@@ -1,3 +1,3 @@
 # Food Classification Streamlit APP
 
-## Heroku Depoyment -> https://streamlitfoodclassifier.azurewebsites.net/
+## Azure Depoyment -> https://streamlitfoodclassifier.azurewebsites.net/
