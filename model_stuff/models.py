@@ -5,9 +5,12 @@ import numpy as np
 import tensorflow as tf
 
 
+
+
 def is_food(image_array):
     # Load the model
-    model = load_model("model_stuff/CNN_Food_5k.h5")
+    # model = load_model("model_stuff/CNN_Food_5k.h5")
+    model = load_model("https://foodclassifier.blob.core.windows.net/models/CNN_Food_5k.h5")
     # Make a prediction
     prediction = predict(model, image_array)
     # Return whether or not the prediction is food
@@ -15,7 +18,7 @@ def is_food(image_array):
 
 def classify_food (image_array):
     # Load the model
-    model = load_model("model_stuff/inceptionv3_101.h5")
+    model = load_model("https://foodclassifier.blob.core.windows.net/models/inceptionv3_101.h5")
     # Make a prediction
     prediction = predict(model, image_array)
     # Return whether or not the prediction is food
