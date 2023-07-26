@@ -40,13 +40,13 @@ if uploaded_file is not None:
         recipe_df = recipe_df.fillna('To taste')
         
 
-        st.markdown(f"# [{class_label}]({food['url']})")
+        st.markdown(f"# [{class_label.replace('_',' ').title()}]({food['url']})")
 
         st.subheader("Ingredients:")
         # Display the DataFrame as a table in Streamlit
         st.dataframe(recipe_df.reset_index().drop(columns='index'))
         st.subheader(f"This recipe makes {food['yield']} serving sizes of {int(float(food['totalWeight'])/float(food['yield']))} grams  with an estimate of {int(float(food['calories'])/float(food['yield']))} calories per serving.") 
-        st.write(food)
+        # st.write(food)
         
 
 

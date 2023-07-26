@@ -20,6 +20,7 @@ def is_food(image_array):
     # Return whether or not the prediction is food
     return prediction[0][0] > 0.5
 
+
 def classify_food (image_array):
     # Load the model URL from environment variable
     model_url = os.getenv("CLASSIFY_MODEL_URL")
