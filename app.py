@@ -23,6 +23,8 @@ if uploaded_file is not None:
     image1 = preprocess_image_is_food(image)
     image2 = preprocess_image_classify_food(image)
 
+  
+
     if is_food(image1):
 
         #classifys image

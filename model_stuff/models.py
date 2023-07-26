@@ -18,7 +18,7 @@ def is_food(image_array):
     # Make a prediction
     prediction = predict(model, image_array)
     # Return whether or not the prediction is food
-    return prediction[0][0] > 0.5
+    return prediction[0][0] < 0.5
 
 
 def classify_food (image_array):
