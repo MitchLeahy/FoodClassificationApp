@@ -12,9 +12,9 @@ with open('recipe.json', 'r') as f:
     recipe_dict = json.load(f)
 
 
-st.title("Food Classifier")
+st.title("SnackSniffer")
 
-uploaded_file = st.file_uploader("Choose an image...", type="jpeg")
+uploaded_file = st.file_uploader("Insert a picture of your plate, we'll do the rest.", type="jpeg")
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
@@ -54,7 +54,8 @@ if uploaded_file is not None:
 
 
     else:
-        st.write("This is not food!")
+        st.title("Thas's not food silly goose!")
+        st.image("sillier goose.jfif")
 
 
  
