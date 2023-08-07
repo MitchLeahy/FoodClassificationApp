@@ -23,26 +23,30 @@ if uploaded_file is not None:
     if food_model.is_food(image):
 
         #classifys image
-        class_label = food_model.classify_food(image)
-        # gets food object from recipe.json
-        food = recipe_dict[class_label]
-        #isolates ingredients
-        recipe = food['ingredients']
+        class_label,probabilty = food_model.classify_food(image)
 
-        # Convert the API response to a pandas DataFrame
-        recipe_df = pd.DataFrame(recipe)
-        # Only keep the necessary columns
-        recipe_df = recipe_df[['food', 'quantity', 'measure']]
-        #replace na with 'To taste'
-        recipe_df = recipe_df.fillna('To taste')
+        if probabilty > 0.1:
+            # gets food object from recipe.json
+            food = recipe_dict[class_label]
+            #isolates ingredients
+            recipe = food['ingredients']
 
-        st.markdown(f"# [{class_label.replace('_',' ').title()}]({food['url']})")
+            # Convert the API response to a pandas DataFrame
+            recipe_df = pd.DataFrame(recipe)
+            # Only keep the necessary columns
+            recipe_df = recipe_df[['food', 'quantity', 'measure']]
+            #replace na with 'To taste'
+            recipe_df = recipe_df.fillna('To taste')
 
-        st.subheader("Ingredients:")
-        # Display the DataFrame as a table in Streamlit
-        st.dataframe(recipe_df.reset_index().drop(columns='index'))
-        st.subheader(f"This recipe makes {food['yield']} serving sizes of {int(float(food['totalWeight'])/float(food['yield']))} grams  with an estimate of {int(float(food['calories'])/float(food['yield']))} calories per serving.") 
+            st.markdown(f"# [{class_label.replace('_',' ').title()}]({food['url']})")
 
+            st.subheader("Ingredients:")
+            # Display the DataFrame as a table in Streamlit
+            st.dataframe(recipe_df.reset_index().drop(columns='index'))
+            st.subheader(f"This recipe makes {food['yield']} serving sizes of {int(float(food['totalWeight'])/float(food['yield']))} grams  with an estimate of {int(float(food['calories'])/float(food['yield']))} calories per serving.") 
+            
+        else:
+            st.title("I'm not sure what that is. I only know 101 foods right now.")
     else:
         st.title("Thas's not food silly goose!")
         st.image("sillier goose.jfif")
