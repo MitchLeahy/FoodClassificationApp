@@ -1,6 +1,6 @@
-# SnackSniffer
+# [SnackSniffer](https://snacksniffer.com/)
 
-## Azure Depoyment -> https://streamlitfoodclassifier.azurewebsites.net/
+
 
 ## Description
 This project features a robust and efficient system for food image classification and information retrieval. The system utilizes the Food-5K and Food-101 datasets to identify food items from user-provided images.

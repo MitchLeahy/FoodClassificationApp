@@ -5,7 +5,7 @@ import pandas as pd
 from model_stuff.model import FoodModel
 
 # Initialize the FoodModel
-food_model = FoodModel()
+
 
 # Read the list from the JSON file
 with open('recipe.json', 'r') as f:
@@ -19,7 +19,7 @@ uploaded_file = st.file_uploader("Insert a picture of your plate, we'll do the r
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded Image.', use_column_width=True)
-
+    food_model = FoodModel()
     if food_model.is_food(image):
 
         #classifys image
